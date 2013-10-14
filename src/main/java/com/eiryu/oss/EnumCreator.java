@@ -17,14 +17,15 @@ public class EnumCreator {
 
 	private static final String TAB = "\t";
 
-	public static void create(String className, String filePath) throws IOException {
+	public static void create(String className, String filePath)
+			throws IOException {
 
 		File file = new File(filePath);
 		if (false == file.exists()) {
 			System.out.println("File Not Found");
 			System.exit(-1);
 		}
-		
+
 		boolean readHeader = false;
 		String[] headers = null;
 
@@ -69,7 +70,7 @@ public class EnumCreator {
 
 		// output enum declaration
 		System.out.format("public enum %s {\n", className);
-		
+
 		// output names
 		output(names);
 		System.out.println(";");
@@ -80,14 +81,14 @@ public class EnumCreator {
 		// output constructor
 		System.out.format("private %s (%s) {\n", className, constructorArgs);
 		output(constructorInitializeProcesses);
-
 		System.out.println("}");
+
 		System.out.println("}");
 	}
 
 	private static void output(List<String> elements) {
-		for (String name : elements) {
-			System.out.println(name);
+		for (String ele : elements) {
+			System.out.println(ele);
 		}
 	}
 
